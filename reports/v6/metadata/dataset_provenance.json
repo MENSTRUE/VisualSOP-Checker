@@ -1,0 +1,15 @@
+{
+  "original_input": "/kaggle/input/datasets/wafabila/visualsop-dataset",
+  "next_input": "/kaggle/input/datasets/wafabila/visualsop-dataset-next",
+  "official_source": "https://huggingface.co/datasets/cvml-nus/assembly101",
+  "license": "CC BY-NC 4.0; gated conditions apply",
+  "camera": "C10095_rgb.mp4",
+  "source_recordings": 13,
+  "coarse_annotation_files": 680,
+  "annotation_timebase_fps": 30,
+  "data_copying": false,
+  "old_test_groups_already_inspected": [
+    "9016",
+    "9021"
+  ]
+}

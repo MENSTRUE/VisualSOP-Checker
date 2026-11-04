@@ -1,0 +1,7 @@
+,attach cabin,attach wheel,detach cabin,detach wheel,screw chassis,unscrew chassis
+attach cabin,2,0,0,0,2,0
+attach wheel,0,0,0,0,1,1
+detach cabin,1,0,0,0,2,1
+detach wheel,0,0,0,0,0,2
+screw chassis,1,0,0,0,1,0
+unscrew chassis,1,0,0,0,1,0

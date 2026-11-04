@@ -1,0 +1,17 @@
+segment_id,session,action,split,prediction,correct,predicted_margin
+seg_00067,nusar-2021_action_both_9016-a24_9016_user_id_2021-02-17_135905,detach wheel,test,unscrew chassis,False,0.104842186
+seg_00068,nusar-2021_action_both_9016-a24_9016_user_id_2021-02-17_135905,attach wheel,test,screw chassis,False,0.7370802
+seg_00069,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,detach wheel,test,unscrew chassis,False,0.52622837
+seg_00070,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,unscrew chassis,test,attach cabin,False,1.6446201
+seg_00071,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,detach cabin,test,unscrew chassis,False,0.25513908
+seg_00072,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,attach cabin,test,screw chassis,False,1.1721994
+seg_00073,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,detach cabin,test,attach cabin,False,0.61938685
+seg_00074,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,attach cabin,test,screw chassis,False,0.9498164
+seg_00075,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,detach cabin,test,screw chassis,False,0.58150315
+seg_00076,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,attach cabin,test,attach cabin,True,0.5985549
+seg_00077,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,detach cabin,test,screw chassis,False,0.9384091
+seg_00078,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,attach wheel,test,unscrew chassis,False,0.6491138
+seg_00079,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,attach cabin,test,attach cabin,True,1.5408187
+seg_00080,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,screw chassis,test,screw chassis,True,0.13831392
+seg_00081,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,unscrew chassis,test,screw chassis,False,0.5790472
+seg_00082,nusar-2021_action_both_9021-a14_9021_user_id_2021-02-03_100733,screw chassis,test,attach cabin,False,0.48860356

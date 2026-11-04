@@ -1,0 +1,34 @@
+{
+  "experiment": "VisualSOP V6 fine-tuned R3D-18 motion ROI",
+  "source_sessions": 13,
+  "true_segments": {
+    "train": 62,
+    "val": 17,
+    "test": 16
+  },
+  "train_clip_views": 124,
+  "classes": [
+    "attach cabin",
+    "attach wheel",
+    "detach cabin",
+    "detach wheel",
+    "screw chassis",
+    "unscrew chassis"
+  ],
+  "model": "Kinetics400 R3D18 fine-tuned layer4 + six-class head",
+  "best_epoch": 10,
+  "val_selected_roi": "ensemble",
+  "validation": {
+    "accuracy": 0.5294117647058824,
+    "balanced_accuracy": 0.513888888888889,
+    "macro_f1": 0.5111111111111111
+  },
+  "reused_exploratory_test": {
+    "accuracy": 0.1875,
+    "balanced_accuracy": 0.16666666666666666,
+    "macro_f1": 0.1111111111111111
+  },
+  "independent_blind_test": false,
+  "sop_violation_ground_truth": false,
+  "target_80pct_met_on_reused_test": false
+}

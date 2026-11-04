@@ -1,0 +1,18 @@
+segment_id,session,action,split,prediction,correct,predicted_margin
+seg_00000,nusar-2021_action_both_9011-a01_9011_user_id_2021-02-01_153724,unscrew chassis,val,screw chassis,False,0.033842444
+seg_00001,nusar-2021_action_both_9011-a01_9011_user_id_2021-02-01_153724,detach cabin,val,attach cabin,False,0.19978753
+seg_00002,nusar-2021_action_both_9011-a01_9011_user_id_2021-02-01_153724,unscrew chassis,val,screw chassis,False,0.66468674
+seg_00003,nusar-2021_action_both_9011-a01_9011_user_id_2021-02-01_153724,screw chassis,val,screw chassis,True,0.68199426
+seg_00004,nusar-2021_action_both_9011-a01_9011_user_id_2021-02-01_153724,screw chassis,val,screw chassis,True,0.4299003
+seg_00005,nusar-2021_action_both_9011-a01_9011_user_id_2021-02-01_153724,attach cabin,val,attach cabin,True,0.1532539
+seg_00006,nusar-2021_action_both_9011-a01_9011_user_id_2021-02-01_153724,screw chassis,val,screw chassis,True,2.318965
+seg_00007,nusar-2021_action_both_9011-b06b_9011_user_id_2021-02-01_154253,detach wheel,val,attach wheel,False,3.7596116
+seg_00008,nusar-2021_action_both_9011-b06b_9011_user_id_2021-02-01_154253,detach cabin,val,detach cabin,True,0.935984
+seg_00009,nusar-2021_action_both_9011-b06b_9011_user_id_2021-02-01_154253,attach wheel,val,attach wheel,True,0.011844873
+seg_00010,nusar-2021_action_both_9011-b06b_9011_user_id_2021-02-01_154253,attach cabin,val,attach wheel,False,0.58300066
+seg_00011,nusar-2021_action_both_9012-a16_9012_user_id_2021-02-01_162904,unscrew chassis,val,unscrew chassis,True,0.44968706
+seg_00012,nusar-2021_action_both_9012-a16_9012_user_id_2021-02-01_162904,detach cabin,val,detach cabin,True,3.0776796
+seg_00013,nusar-2021_action_both_9012-a16_9012_user_id_2021-02-01_162904,detach wheel,val,detach wheel,True,0.49070874
+seg_00014,nusar-2021_action_both_9012-a16_9012_user_id_2021-02-01_162904,attach wheel,val,detach wheel,False,0.559716
+seg_00015,nusar-2021_action_both_9012-a16_9012_user_id_2021-02-01_162904,attach cabin,val,detach cabin,False,2.0924435
+seg_00016,nusar-2021_action_both_9012-a16_9012_user_id_2021-02-01_162904,screw chassis,val,attach wheel,False,0.021788612
