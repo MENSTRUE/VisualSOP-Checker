@@ -1,0 +1,59 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Raw datasets
+datasets/
+dataset/
+data/
+raw/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.7z
+*.rar
+*.zip
+
+# Model weights and generated exports
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.hdf5
+*.safetensors
+*.joblib
+*.pkl
+
+# Caches
+cache/
+features/
+*.npz
+*.npy
+
+# Local artifacts
+runs/
+wandb/
+mlruns/
+dist/
+build/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
