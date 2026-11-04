@@ -4,3 +4,5 @@ python-multipart>=0.0.12,<1
 opencv-python-headless>=4.9,<5
 numpy>=1.26,<3
 pydantic>=2,<3
+torch>=2.3,<3
+torchvision>=0.18,<1

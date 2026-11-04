@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 import json, os, uuid, tempfile, shutil
 from pathlib import Path
 from typing import Annotated
@@ -8,8 +8,9 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
+from .v6_inference import readiness, classify_video
 
-ROOT=Path(__file__).resolve().parents[3]
+ROOT=Path(__file__).resolve().parents[2]
 STORE=Path(os.getenv('VISUALSOP_STORAGE',str(Path(__file__).resolve().parents[1]/'storage')))
 STORE.mkdir(parents=True,exist_ok=True)
 MAX_MB=int(os.getenv('VISUALSOP_MAX_UPLOAD_MB','150'))
@@ -27,7 +28,8 @@ class Analysis(BaseModel):
     frames:int
     motion:list[dict]
     model_status:str='not_integrated'
-    activity_predictions:list=[]
+    activity_predictions:list[dict]=[]
+    ai_error:str|None=None
     sop_status:str='not_evaluated'
     warning:str='Motion score is optical frame difference, NOT an AI activity prediction or SOP violation result.'
 
@@ -35,9 +37,8 @@ class Analysis(BaseModel):
 def health():
     ckpt=ROOT/'models'/'best_finetuned_layer4_fc.pt'
     recipe=ROOT/'models'/'inference_recipe.json'
-    return {'status':'ok','service':'VisualSOP Checker','model_checkpoint_present':ckpt.exists(),
-            'inference_recipe_present':recipe.exists(),'model_inference_enabled':False,
-            'note':'R3D-18 inference requires matching V6 preprocessing and class mapping. No fabricated predictions.'}
+    return {'status':'ok','service':'VisualSOP Checker', **readiness(),
+            'note':'Model predictions are experimental 6-class action recognition; not SOP compliance.'}
 
 @app.post('/api/analyze',response_model=Analysis)
 async def analyze(file:Annotated[UploadFile,File(description='Video to inspect')]):
@@ -83,6 +84,23 @@ async def analyze(file:Annotated[UploadFile,File(description='Video to inspect')
             if not samples:raise HTTPException(422,'No readable frames')
         finally:cap.release()
         result=Analysis(id=job,filename=name,duration_s=round(n/fps,2),fps=round(fps,2),width=w,height=h,frames=n,motion=samples)
+        # Real V6 predictions, only if the actual fine-tuned checkpoint & recipe exist.
+        if readiness()['model_inference_enabled']:
+            try:
+                from fastapi.concurrency import run_in_threadpool
+                ai = await run_in_threadpool(classify_video, video_path, n/fps)
+                result.model_status = 'experimental_v6'
+                result.activity_predictions = ai['predictions']
+                result.warning = ('R3D-18 V6 experimental six-class predictions; scores are not calibrated. '
+                                  'Video windows are heuristic, not ground-truth action segments. '
+                                  'SOP compliance is NOT evaluated.')
+            except Exception as exc:
+                result.model_status = 'inference_failed'
+                result.ai_error = str(exc)
+                result.warning = 'Motion analysis succeeded, but R3D-18 inference failed. Check ai_error.'
+        else:
+            result.model_status = 'checkpoint_missing'
+            result.warning = 'Checkpoint/recipe missing in models/. Only motion features computed.'
         (directory/'result.json').write_text(result.model_dump_json(indent=2),encoding='utf8')
         return result
     except Exception:
@@ -103,3 +121,4 @@ def preview(job_id:str):
     p=STORE/job_id/'preview.jpg'
     if not p.is_file():raise HTTPException(404,'Not found')
     return FileResponse(p,media_type='image/jpeg')
+
