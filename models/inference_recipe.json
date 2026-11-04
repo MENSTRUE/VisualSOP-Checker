@@ -1,0 +1,24 @@
+{
+  "pretrained": "torchvision.models.video.r3d_18(weights=R3D_18_Weights.DEFAULT)",
+  "checkpoint": "models/best_finetuned_layer4_fc.pt",
+  "head_classes": [
+    "attach cabin",
+    "attach wheel",
+    "detach cabin",
+    "detach wheel",
+    "screw chassis",
+    "unscrew chassis"
+  ],
+  "fps_index_to_seconds": 30,
+  "frames_per_clip": 16,
+  "inner_interval_fraction": 0.78,
+  "train_temporal_positions": [
+    0.25,
+    0.75
+  ],
+  "eval_temporal_position": 0.5,
+  "resize_short_edge": 128,
+  "roi": "ensemble",
+  "normalization": "R3D_18_Weights.DEFAULT.transforms()",
+  "important": "Inference requires source video segment start/end timestamps; checkpoint alone is not a video classifier API"
+}
